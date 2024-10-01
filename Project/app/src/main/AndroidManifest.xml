@@ -12,42 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Btb"
         tools:targetApi="31">
-
-
-
         <activity
-
+            android:name=".GameActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Btb" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.Btb"
-            android:screenOrientation='landscape'
             tools:ignore="DiscouragedApi">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-
             android:name=".MainMenuActivity"
             android:exported="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.Btb"
-            android:screenOrientation='landscape'
             tools:ignore="DiscouragedApi">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
-
     </application>
 
 </manifest>
