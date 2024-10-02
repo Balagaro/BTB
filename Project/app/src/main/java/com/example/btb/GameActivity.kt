@@ -1,41 +1,49 @@
-package com.example.btb
+package com.example.btb.ui.theme
 
+import android.content.res.AssetFileDescriptor
+import android.media.MediaPlayer
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.btb.databinding.ActivityGameBinding
+import android.view.SurfaceHolder
+import com.example.btb.R
 
-class GameActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityGameBinding
+private lateinit var surfaceHolder: SurfaceHolder
+private lateinit var mediaPlayer: MediaPlayer
+private lateinit var fileDescriptor: AssetFileDescriptor
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-        binding = ActivityGameBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+class GameActivity : AppCompatActivity(),SurfaceHolder.Callback2 {
+    lateinit var mediaPlayer: MediaPlayer
+    lateinit var surfaceHolder: SurfaceHolder
+    lateinit var fileDescriptor: AssetFileDescriptor
 
-        setSupportActionBar(binding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_game)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
-        }
+    override fun surfaceCreated(surfaceHolder: SurfaceHolder) {
+        mediaPlayer = MediaPlayer()
+        mediaPlayer.setDisplay(surfaceHolder)
+        mediaPlayer.setDataSource(fileDescriptor)
+        mediaPlayer.prepareAsync()
+        mediaPlayer.setOnPreparedListener { mediaPlayer -> mediaPlayer.start() }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_game)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+    override fun onCreated(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_game)
+
+        surfaceHolder = surface_view.holder
+        surfaceHolder.addCallback(p0: this)
+        fileDescriptor = assets.openFd("bgm.mp3")
+        mediaPlayer = MediaPlayer()
+    }
+
+
+    override fun surfaceChanged(p0: SurfaceHolder, p1: Int, p2: Int, p3: Int) {
+    }
+
+    override fun surfaceDestroyed(p0: SurfaceHolder) {
+    }
+
+    override fun surfaceRedrawNeeded(p0: SurfaceHolder) {
     }
 }
