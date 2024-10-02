@@ -31,6 +31,7 @@ class MainMenuActivity : ComponentActivity() {
             val intent = Intent(this, GameActivity::class.java)
             intent.putExtra("newGame", true) // Extra adat átadása az új Activity-nek
             startActivity(intent)
+            setContentView(GameActivity(this))
         }
 
         continueGameButton.setOnClickListener {

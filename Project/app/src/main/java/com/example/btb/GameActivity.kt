@@ -1,49 +1,35 @@
-package com.example.btb.ui.theme
+package com.example.btb
 
-import android.content.res.AssetFileDescriptor
-import android.media.MediaPlayer
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.graphics.Canvas
 import android.view.SurfaceHolder
-import com.example.btb.R
+import android.view.SurfaceView
 
 
-private lateinit var surfaceHolder: SurfaceHolder
-private lateinit var mediaPlayer: MediaPlayer
-private lateinit var fileDescriptor: AssetFileDescriptor
+class GameActivity(context: Context) : SurfaceView(context), SurfaceHolder.Callback {
 
-
-class GameActivity : AppCompatActivity(),SurfaceHolder.Callback2 {
-    lateinit var mediaPlayer: MediaPlayer
-    lateinit var surfaceHolder: SurfaceHolder
-    lateinit var fileDescriptor: AssetFileDescriptor
-
-
-    override fun surfaceCreated(surfaceHolder: SurfaceHolder) {
-        mediaPlayer = MediaPlayer()
-        mediaPlayer.setDisplay(surfaceHolder)
-        mediaPlayer.setDataSource(fileDescriptor)
-        mediaPlayer.prepareAsync()
-        mediaPlayer.setOnPreparedListener { mediaPlayer -> mediaPlayer.start() }
+    init {
+        holder.addCallback(this)
+    }
+    override fun surfaceCreated(holder: SurfaceHolder) {
+        val canvas: Canvas? = holder.lockCanvas()
+        try {
+            if (canvas != null) {
+                //amit szeretnenk rajzolni
+                draw(canvas)
+            }
+        } finally {
+            //renderel
+            if (canvas != null) {
+                holder.unlockCanvasAndPost(canvas)
+            }
+        }
+    }
+    override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
+        TODO("Not yet implemented")
     }
 
-    override fun onCreated(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game)
-
-        surfaceHolder = surface_view.holder
-        surfaceHolder.addCallback(p0: this)
-        fileDescriptor = assets.openFd("bgm.mp3")
-        mediaPlayer = MediaPlayer()
-    }
-
-
-    override fun surfaceChanged(p0: SurfaceHolder, p1: Int, p2: Int, p3: Int) {
-    }
-
-    override fun surfaceDestroyed(p0: SurfaceHolder) {
-    }
-
-    override fun surfaceRedrawNeeded(p0: SurfaceHolder) {
+    override fun surfaceDestroyed(holder: SurfaceHolder) {
+        TODO("Not yet implemented")
     }
 }
