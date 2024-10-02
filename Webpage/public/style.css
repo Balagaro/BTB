@@ -1,5 +1,7 @@
 body{
     background-color: grey;
+    padding: 0px;
+    margin: 0px;
 }
 
 .outer_container{
@@ -9,19 +11,8 @@ body{
 }
 .inner_container{
     width:90%;
-
-}
-
-.title{
-    width:50%;
-    font-family: "Lacquer", system-ui;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 80px;
-    color: white;
-    -webkit-text-stroke: 1px black;
-    text-stroke: 1px black;
-
+    padding:120px;
+    padding-top: 60px;
 }
 
 .out-title{
@@ -41,9 +32,69 @@ body{
 .innertext{
     width:40%;
     justify-content: center;
+    background-color: white;
 }
 .outer_text{
     width:100%;
     display: flex;
     justify-content: center;
+}
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+}
+.navrow{
+    height:50px;
+    color: white
+}
+.navline{
+    padding: 15px;
+}
+
+.nona{
+    color:white;
+    text-decoration: none;
+
+
+}
+.nona:hover{
+    color:white;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+.title{
+    width:50%;
+    font-family: "Lacquer", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 80px;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+    text-align: center;
+}
+.title .nona{
+
+    font-family: "Lacquer", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 80px;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+    text-align: center;
+}
+
+.liltitle{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: justify;
+    font-size: 20px;
 }
