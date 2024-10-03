@@ -1,14 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services") version "4.4.2" apply false
 }
 
 android {
-    namespace = "com.example.btb"
+    namespace = "my.limitless.btb"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.btb"
+        applicationId = "my.limitless.btb"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
@@ -51,7 +52,9 @@ android {
 }
 
 dependencies {
-
+    implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.google.android.gms:play-services-games:+")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,34 +13,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Btb"
         tools:targetApi="31">
+
+
         <activity
             android:name=".GameActivity"
             android:exported="false"
             android:theme="@style/Theme.Btb" />
         <activity
-            android:name=".MainActivity"
+            android:name="my.limitless.btb.MainActivity"
             android:exported="true"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.Btb"
             tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainMenuActivity"
+            android:name="my.limitless.btb.MainMenuActivity"
             android:exported="true"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.Btb"
-            tools:ignore="DiscouragedApi">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name="com.google.androidgamesdk.GameActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:theme="@style/Theme.Btb" />
     </application>
-
 </manifest>

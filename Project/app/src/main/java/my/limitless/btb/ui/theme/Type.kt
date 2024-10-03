@@ -1,4 +1,4 @@
-package com.example.btb.ui.theme
+package my.limitless.btb.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package com.example.btb
+package my.limitless.btb
 
 import org.junit.Test
 
