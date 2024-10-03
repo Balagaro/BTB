@@ -8,4 +8,5 @@ class Render {
     //Thread management
     //GLSurfaceView
     //eglSwapBuffers()
+    //cigany
 }
