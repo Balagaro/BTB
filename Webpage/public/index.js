@@ -31,7 +31,7 @@ function legal(){
                 </div>
                 <div class="liltext">
 
-                    This game is recommended for ages 6 and up. If you are under 6, please ask a parent or guardian before playing.
+                    This game is recommended for ages 6 and up. If you fo not meet the age requirements for it, please ask a parent or guardian before playing.
                 </div>
 
                 <div class="liltitle">
@@ -47,8 +47,8 @@ function legal(){
                 </div>
                 <div class="liltext">
                     Be kind to other players.
-                    Don't use cheats or hacks.
-                    This game is for personal use only. Don't share your account with others.
+                    The usage of cheats or hacks are forbidden.
+                    This game is for personal use only. Do not share your account information.
                 </div>
 
                 <div class="liltitle">
@@ -84,16 +84,12 @@ function legal(){
                     Additional Tips:
                 </div>
                 <div class="liltext">
-                    Keep it simple and fun: Use easy-to-understand language and avoid legal jargon.
+                    Keep it simple and fun: Use easy-to-understand language.
                     <br>Be positive: Use positive language and focus on the fun aspects of the game.
-                    <br>Be clear: Make sure the rules are clear and easy to follow.
-                    <br>Involve parents: Emphasize the importance of parental involvement.
-                    <br>Consider a FAQ section: Answer common questions that kids might have.
+                    <br>Parental involvment: Emphasize the importance of parental involvement.
                     <br>Remember:
 
-                    <br>Legal review: It's always a good idea to have a lawyer review your Terms of Service to ensure it complies with all applicable laws and regulations.
-                    <br>Child-friendly language: Use words and phrases that are easy for children to understand.
-                    <br>Visuals: Consider adding illustrations or graphics to make the Terms of Service more engaging for children.
+
 
                 </div>
 
