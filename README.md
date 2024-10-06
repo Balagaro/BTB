@@ -17,5 +17,5 @@ Android based AI implemented game
 
 - AI NPCs
 - Survival mode
-- 2D platformer
+- 2D
 
