@@ -87,7 +87,7 @@ function legal(){
                     Keep it simple and fun: Use easy-to-understand language.
                     <br>Be positive: Use positive language and focus on the fun aspects of the game.
                     <br>Parental involvment: Emphasize the importance of parental involvement.
-                    <br>Remember:
+                    
 
 
 

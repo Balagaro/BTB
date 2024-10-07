@@ -1,7 +1,5 @@
-
 {
   "hosting": {
-    "site": "beyondtheblocks",
     "public": "public",
     "ignore": [
       "firebase.json",
