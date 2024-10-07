@@ -10,6 +10,7 @@ Android based AI implemented game
 - [@Szombathelyi Péter](https://github.com/Capeti0420)
 - [@Kemény Dániel](https://github.com/Popliti)
 - [@Pajor Kristóf](https://github.com/PKristof9000)
+- [@Vörös Marcell](https://github.com/zappoaintzippo)
 - [@Király Balázs](https://github.com/Balagaro)
 
 
@@ -17,5 +18,5 @@ Android based AI implemented game
 
 - AI NPCs
 - Survival mode
-- 2D platformer
+- 2D
 
