@@ -1,4 +1,7 @@
 body{
+    background-image: url("./beyond\ the\ block\ logo.jpg");
+    background-size: cover;
+    
     background-color: grey;
     padding: 0px;
     margin: 0px;
@@ -8,6 +11,7 @@ body{
     width:100%;
     display:flex;
     justify-content: center;
+    
 }
 .inner_container{
     width:90%;
@@ -30,9 +34,14 @@ body{
     font-size: 20px;
 }
 .innertext{
-    width:40%;
+    width:90%;
+    height: 90%;
     justify-content: center;
     background-color: white;
+    border: 7px outset black;
+    border-radius: 15px;
+    margin: 15%;
+    padding: 15px;
 }
 .outer_text{
     width:100%;
