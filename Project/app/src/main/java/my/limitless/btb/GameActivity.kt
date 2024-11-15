@@ -58,15 +58,6 @@ class GameActivity : AppCompatActivity() {
         fun update() {
             // ...
         }
-
-
-        override fun draw(canvas: Canvas) {
-            super.draw(canvas) // Call the super method first
-            canvas.drawColor(Color.WHITE) // Set the background color to white
-            val paint = Paint()
-            paint.color = Color.RED
-            canvas.drawRect(100f, 100f, 200f, 200f, paint)
-        }
         private fun drawPerlinNoise(canvas: Canvas) {
             val width = canvas.width
             val height = canvas.height
