@@ -1,48 +1,51 @@
-package my.limitless.btb
+class PerlinNoise(private val seed: Int) {
+    private val permutation = IntArray(512)
 
-import kotlin.random.Random
-
-const val MAP_WIDTH = 20
-const val MAP_HEIGHT = 20 // You can change this value to increase/decrease the height of the map
-const val TILE_TYPES = 3 // For simplicity, let's say we have 3 tile types
-
-// Define your tile types here
-enum class TileType(val value: Int) {
-    LAND(0), WATER(1), MOUNTAIN(2)
-}
-
-data class Tile(val type: TileType)
-
-class MapGenerator {
-    private val map: Array<Array<Tile>> = Array(MAP_HEIGHT) { Array(MAP_WIDTH) { Tile(TileType.LAND) } }
-
-    fun generateMap() {
-        for (y in 0 until MAP_HEIGHT) {
-            for (x in 0 until MAP_WIDTH) {
-                map[y][x] = Tile(generateRandomTile())
-            }
+    init {
+        val p = IntArray(256) { it }
+        p.shuffle(java.util.Random(seed.toLong()))
+        for (i in 0..255) {
+            permutation[i] = p[i]
+            permutation[i + 256] = p[i]
         }
     }
 
-    private fun generateRandomTile(): TileType {
-        val randomValue = Random.nextInt(0, TILE_TYPES)
-        return when (randomValue) {
-            0 -> TileType.LAND
-            1 -> TileType.WATER
-            2 -> TileType.MOUNTAIN
-            else -> TileType.LAND // Fallback (should never happen)
-        }
+    fun noise(x: Double, y: Double): Double {
+        val xi = x.toInt() and 255
+        val yi = y.toInt() and 255
+
+        val xf = x - x.toInt()
+        val yf = y - y.toInt()
+
+        val u = fade(xf)
+        val v = fade(yf)
+
+        val a = permutation[xi] + yi
+        val b = permutation[xi + 1] + yi
+
+        val aa = permutation[a]
+        val ab = permutation[a + 1]
+        val ba = permutation[b]
+        val bb = permutation[b + 1]
+
+        return lerp(
+            v, lerp(
+                u, grad(permutation[aa], xf, yf),
+                grad(permutation[ba], xf - 1, yf)
+            ),
+            lerp(
+                u, grad(permutation[ab], xf, yf - 1),
+                grad(permutation[bb], xf - 1, yf - 1)
+            )
+        )
     }
 
-    fun printMap() {
-        for (row in map) {
-            println(row.joinToString(" ") { it.type.name.substring(0, 1) })
-        }
+    private fun fade(t: Double) = t * t * t * (t * (t * 6 - 15) + 10)
+    private fun lerp(t: Double, a: Double, b: Double) = a + t * (b - a)
+    private fun grad(hash: Int, x: Double, y: Double): Double {
+        val h = hash and 3
+        val u = if (h and 2 == 0) x else -x
+        val v = if (h and 1 == 0) y else -y
+        return u + v
     }
-}
-
-fun main() {
-    val mapGenerator = MapGenerator()
-    mapGenerator.generateMap()
-    mapGenerator.printMap()
 }
