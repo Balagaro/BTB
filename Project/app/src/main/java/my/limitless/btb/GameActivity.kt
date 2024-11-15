@@ -87,4 +87,5 @@ class GameActivity : AppCompatActivity() {
                 }
             }
         }
+
 }
