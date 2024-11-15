@@ -26,6 +26,8 @@ class GameActivity : AppCompatActivity() {
 
 
     inner class GameView(context: Context) : SurfaceView(context), SurfaceHolder.Callback {
+        private val perlinNoise = PerlinNoise(seed = 42)
+        private val paint = Paint()
 
 
         init {
@@ -64,6 +66,26 @@ class GameActivity : AppCompatActivity() {
             val paint = Paint()
             paint.color = Color.RED
             canvas.drawRect(100f, 100f, 200f, 200f, paint)
+        }
+        private fun drawPerlinNoise(canvas: Canvas) {
+            val width = canvas.width
+            val height = canvas.height
+
+            // A képernyő minden egyes pixelére generáljunk Perlin zajt
+            for (y in 0 until height) {
+                for (x in 0 until width) {
+                    // A perlin zaj érték generálása
+                    val noiseValue = perlinNoise.noise(x.toDouble() / 100, y.toDouble() / 100)
+                    // Normalizáljuk az értéket [0, 1] tartományra
+                    val normalizedNoise = (noiseValue + 1) / 2
+                    // Kiszámítjuk a szürkeárnyalat színt
+                    val color = (normalizedNoise * 255).toInt()
+                    paint.color = Color.rgb(color, color, color) // Szürkeárnyalat
+
+                    // Minden egyes pixelt megjelenítünk
+                    canvas.drawPoint(x.toFloat(), y.toFloat(), paint)
+                }
+            }
         }
     }
 }
